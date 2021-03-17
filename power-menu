@@ -1,0 +1,11 @@
+#!/bin/bash
+
+choice=$(echo -e "Logout\nShutdown\nReboot\nSuspend\nHibernate" | dmenu -l 5 -p "What Would You Like To Do?")
+
+case "$choice" in
+  Logout) pkill qtile & ;;
+  Shutdown) poweroff & ;;
+  Reboot) reboot & ;;
+  Suspend) systemctl suspend & ;;
+  Hibernate) systemctl hibernate & ;;
+esac
